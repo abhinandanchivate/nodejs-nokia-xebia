@@ -1,0 +1,18 @@
+{
+  "assets": [
+    {
+      "assetId": "123",
+      "assetName": "Router",
+      "assetType": "Network",
+      "assetValue": "1000",
+      "assetLocation": "USA"
+    },
+    {
+      "assetId": "456",
+      "assetName": "Router",
+      "assetType": "WiFiNetwork",
+      "assetValue": "2000",
+      "assetLocation": "UK"
+    }
+  ]
+}
