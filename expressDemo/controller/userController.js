@@ -1,9 +1,14 @@
 // userRegister : is going to be a controller which will handle the user registration process part
 // this function is responsible for having a connect with DB to perform the user creation work
 
+import { validationResult } from "express-validator";
 import UserModel from "../models/UserModel.js";
 import bcrypt from "bcryptjs";
 export const userRegister = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   // i/p : user details
   // i/p we will get from 3rd part
   // whatever the data we will get it in req it must be validated .
