@@ -1,4 +1,4 @@
 {
-  "MONGO_URI": "mongodb://localhost:27017/dev_employeesystem",
+  "MONGO_URI": "mongodb://localhost:27017/dev_telecomassetsmngt",
   "JWT_SECRET": "dev_secret"
 }

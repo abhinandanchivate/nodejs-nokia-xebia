@@ -1,5 +1,9 @@
 import express from "express";
-import { userLogin, userRegister } from "../controller/userController";
+import { userLogin, userRegister } from "../controller/userController.js";
+import {
+  loginValidator,
+  registerValidator,
+} from "../validators/userValidators.js";
 
 const userRouter = express.Router();
 
@@ -7,8 +11,13 @@ const userRouter = express.Router();
 // userRegistration : is it a new entry or update entry ? new entry
 // new entries would be handled by post method
 // to perform the user Registraion
-userRouter.post("/register", userRegister);
-userRouter.post("/login", userLogin);
+userRouter.post(
+  "/register",
+  registerValidator,
+
+  userRegister
+);
+userRouter.post("/login", loginValidator, userLogin);
 userRouter.get("/", (req, res) => {
   res.json({ message: "Assets route" });
 });
