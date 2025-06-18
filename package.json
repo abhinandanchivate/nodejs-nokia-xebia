@@ -10,5 +10,8 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "mongoose": "^8.16.0"
+  }
 }
