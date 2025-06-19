@@ -15,5 +15,10 @@ const userSchema = new mongoose.Schema(
 
 // in case of mongodb we should not export the schema
 // but the model(must be exported )
-
+userSchema.set("toJSON", {
+  transform: function (doc, ret, options) {
+    delete ret.password;
+    return ret;
+  },
+});
 export default mongoose.model("User", userSchema);
