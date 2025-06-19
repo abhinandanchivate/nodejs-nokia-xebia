@@ -11,5 +11,5 @@ const assetsRouter = express.Router();
 
 assetsRouter.post("/create", assetValidator, createAsset);
 assetsRouter.get("/all", getAllAsset);
-assetsRouter.get("/{id}", getAssetById);
+assetsRouter.get("/:id", getAssetById);
 export default assetsRouter;

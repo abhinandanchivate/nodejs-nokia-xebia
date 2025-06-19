@@ -73,7 +73,7 @@ export const userLogin = async (req, res) => {
     // secret key
     const secret = config.get("JWT_SECRET");
     const token = jwt.sign({ id: user._id, email }, secret, {
-      expiresIn: "1hr",
+      expiresIn: "30s",
     }); // to generate token
     res.status(200).json({ token, message: "Login Success" });
   }
