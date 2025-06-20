@@ -31,8 +31,7 @@ export const userRegister = async (req, res) => {
       .status(400)
       .json({ message: `${conflictedField} already exists ` });
   }
-  const hashed = await bcrypt.hash(password, 10);
-  const user = new UserModel({ username, email, password: hashed });
+  const user = new UserModel({ username, email, password });
   // save the details
   user.save();
 
@@ -65,7 +64,7 @@ export const userLogin = async (req, res) => {
     return res.status(400).json({ message: "Invalid Email or Password" });
   }
   console.log("email id is " + user.email, "password" + user.password);
-  const isMatch = await bcrypt.compare(password, user.password);
+  const isMatch = user.matchPassword(password);
   if (!isMatch) {
     return res.status(400).json({ message: "Invalid Email or Password" });
   } else {
@@ -73,7 +72,7 @@ export const userLogin = async (req, res) => {
     // secret key
     const secret = config.get("JWT_SECRET");
     const token = jwt.sign({ id: user._id, email }, secret, {
-      expiresIn: "30s",
+      expiresIn: "1hr",
     }); // to generate token
     res.status(200).json({ token, message: "Login Success" });
   }

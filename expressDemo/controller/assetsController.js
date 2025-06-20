@@ -14,14 +14,19 @@ export const createAsset = async (req, res) => {
     const asset = new AssetsModel(req.body);
     // assignedto email id exists or not.==> Users
     const user = await UserModel.find({ email: req.body.assignedTo });
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    console.log("user value " + user);
+    if (!user || user.length === 0) {
+      console.log("inside the user criteria");
+      // return res.status(404).json({ message: "User not found" });
+      throw new Error("user not found");
     } else {
       await asset.save();
       res.status(201).json(asset);
     }
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log("inside the catch ");
+    throw new Error(error.message);
+    //res.status(500).json({ error: error.message });
   }
 };
 export const getAllAsset = async (req, res) => {
