@@ -5,7 +5,7 @@ import { expressMiddleware } from "@apollo/server/express4";
 import { getUserFromToken } from "./middleware/authMiddleware.js";
 import logger from "./middleware/logMiddleware.js";
 import Role from "./models/Rolemodel.js";
-
+console.log("before db in app");
 export async function configureApp(apolloServer) {
   const app = express();
 

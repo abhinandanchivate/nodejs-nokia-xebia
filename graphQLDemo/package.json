@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=default node server.js",
+    "dev": "NODE_ENV=dev nodemon server.js",
+    "prod": "NODE_ENV=prod node server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,8 +16,8 @@
     "@apollo/server": "^4.12.2",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
+    "config": "^4.0.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "graphql": "^16.11.0",
     "graphql-compose": "^9.1.0",
@@ -25,5 +28,6 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  }
+  },
+  "type": "module"
 }
