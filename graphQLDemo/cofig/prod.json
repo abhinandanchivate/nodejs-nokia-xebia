@@ -1,0 +1,5 @@
+{
+  "PORT": 9095,
+  "MONGO_URI": "mongodb+srv://your_prod_uri",
+  "JWT_SECRET": "prod_secret"
+}
