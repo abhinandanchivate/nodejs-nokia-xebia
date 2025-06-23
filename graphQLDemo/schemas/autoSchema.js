@@ -15,6 +15,8 @@ const RoleTC = composeWithMongoose(RoleModel, { schemaComposer });
 // RBAC wrapper
 const rbacResolver = (resolver, allowedRoles = []) =>
   resolver.wrapResolve((next) => async (rp) => {
+    const { user } = rp.context;
+    console.log(user);
     checkRole(rp.context.user, allowedRoles);
     return next(rp);
   });
