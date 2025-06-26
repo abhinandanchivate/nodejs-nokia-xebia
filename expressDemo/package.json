@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test npx vitest --ui",
     "start": "NODE_ENV=default node server.js",
     "dev": "NODE_ENV=dev nodemon server.js",
     "prod": "NODE_ENV=prod node server.js"
@@ -21,14 +21,13 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.0",
     "morgan": "^1.10.0",
-    "proxyrequire": "^1.0.21",
-    "sinon": "^21.0.0",
     "winston": "^3.17.0"
   },
   "devDependencies": {
-    "chai": "^5.2.0",
-    "chai-http": "^5.1.2",
-    "mocha": "^11.7.1",
-    "nodemon": "^3.1.10"
-  }
+    "@vitest/ui": "^3.2.4",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.1",
+    "vitest": "^3.2.4"
+  },
+  "type": "module"
 }
