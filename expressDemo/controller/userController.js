@@ -7,6 +7,7 @@ import config from "config";
 import jwt from "jsonwebtoken";
 
 import UserModel from "../models/UserModel.js";
+import { fetchAllUser, fetchUserById } from "../services/user.service.js";
 
 export const userRegister = async (req, res) => {
   const errors = validationResult(req);
@@ -77,4 +78,27 @@ export const userLogin = async (req, res) => {
     res.status(200).json({ token, message: "Login Success" });
   }
   // Token would be generated to have further communication with server from the client.
+};
+
+export const getUsers = async (req, res, next) => {
+  try {
+    const users = await fetchAllUser();
+    res.status(200).json(users);
+  } catch (error) {}
+};
+// getUserbyId
+export const getUserById = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    console.log(id);
+    const user = await fetchUserById(id);
+    console.log("after fetching user by id " + user);
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (error) {
+    next(error);
+  }
 };

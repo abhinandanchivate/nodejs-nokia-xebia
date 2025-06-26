@@ -1,5 +1,10 @@
 import express from "express";
-import { userLogin, userRegister } from "../controller/userController.js";
+import {
+  getUserById,
+  getUsers,
+  userLogin,
+  userRegister,
+} from "../controller/userController.js";
 import {
   loginValidator,
   registerValidator,
@@ -21,4 +26,6 @@ userRouter.post("/login", loginValidator, userLogin);
 userRouter.get("/", (req, res) => {
   res.json({ message: "Assets route" });
 });
+userRouter.get("/all", getUsers);
+userRouter.get("/:id", getUserById);
 export default userRouter;

@@ -1,4 +1,8 @@
 {
   "MONGO_URI": "mongodb://localhost:27017/dev_telecomassetsmngt",
-  "JWT_SECRET": "dev_secret"
+  "JWT_SECRET": "dev_secret",
+  "userAPI": {
+    "baseURL": "https://jsonplaceholder.typicode.com",
+    "timeout": 5000
+  }
 }

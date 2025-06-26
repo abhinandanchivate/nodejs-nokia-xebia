@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`GET /api/v1/assets/:id - should return single asset snapshot 1`] = `
+{
+  "assignedTo": "mark@example.com",
+  "id": "123",
+  "name": "Keyboard",
+}
+`;
+
+exports[`GET /api/v1/assets/all - should return snapshot 1`] = `
+[
+  {
+    "assignedTo": "john@example.com",
+    "id": 1,
+    "name": "Laptop",
+  },
+  {
+    "assignedTo": "jane@example.com",
+    "id": 2,
+    "name": "Monitor",
+  },
+]
+`;
