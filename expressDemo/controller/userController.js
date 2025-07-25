@@ -86,6 +86,22 @@ export const getUsers = async (req, res, next) => {
     res.status(200).json(users);
   } catch (error) {}
 };
+// getUserDetails based on Token
+export const getUserDetails = async (req, res, next) => {
+  try {
+    const user = req.user; // from authMiddleware
+    console.log("userId is " + JSON.stringify(user));
+    const userDetails = await UserModel.findById(user.id).select("-password");
+    //const user = await fetchUserById(userId);
+    if (user) {
+      res.status(200).json(userDetails);
+      //res.status(404).json({ message: "User not found" });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 // getUserbyId
 export const getUserById = async (req, res, next) => {
   try {

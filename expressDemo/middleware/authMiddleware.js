@@ -22,6 +22,7 @@ export const authMiddleware = (req, res, next) => {
       // establish the condition based on expiry of the token
       if (decoded.exp && decoded.exp * 1000 > Date.now()) {
         console.log("inside exp criteria");
+        console.log(decoded);
         req.user = decoded; // over the request it will create a new field called
         // user and that one will get decoded value .
       } else {

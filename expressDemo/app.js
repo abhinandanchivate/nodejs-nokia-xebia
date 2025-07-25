@@ -24,3 +24,4 @@ app.use(errorHandler);
 //app.use("/api/v2/", rootRouter);
 
 export default app;
+// microservices, rate-limiting - kubernetes native deployment

@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getUserById,
+  getUserDetails,
   getUsers,
   userLogin,
   userRegister,
@@ -9,6 +10,7 @@ import {
   loginValidator,
   registerValidator,
 } from "../validators/userValidators.js";
+import { authMiddleware } from "../middleware/authMiddleware.js";
 
 const userRouter = express.Router();
 
@@ -27,5 +29,6 @@ userRouter.get("/", (req, res) => {
   res.json({ message: "Assets route" });
 });
 userRouter.get("/all", getUsers);
+userRouter.get("/me", authMiddleware, getUserDetails);
 userRouter.get("/:id", getUserById);
 export default userRouter;
